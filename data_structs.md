@@ -94,7 +94,7 @@ var val = numbers.Peek();
 
 ```
 Stack<string> numbers = new Stack<string>();
-numbers.push("one");
+numbers.Push("one");
 var val = numbers.Pop();
 var val = numbers.Peek();
 ```
