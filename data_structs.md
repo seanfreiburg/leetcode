@@ -1,6 +1,6 @@
-````
-i am code
-````
+Sean's data structs in c#
+
+
 * Dictionary
 
 ```
@@ -58,6 +58,7 @@ parts.Sort(delegate(Part x, Part y)
 
 * Linked List
 
+    * doubly linked list
 ```
 LinkedList<string> sentence = new LinkedList<string>();
 string f = sentence.First;
@@ -100,17 +101,51 @@ var val = numbers.Peek();
 ```
 
 * Min Heap
+    
+    * Just do a sortedList or SortedDictionary, it should have min at front
 
 * Max Heap
+    * Just do a sortedList or SortedDictionary, it should have max at back
 
 * Priority Queue
+    * Just do a sortedList or SortedDictionary, it should have min at front
+    * make the compare func look at pri in the object 
 
 * Binary tree
 
 * AVL/self balancing tree
 
+    * SortedSet<T> is implemented using a self-balancing red-black tree that gives a performance complexity of O(log n) for insert, delete, and lookup. It is used to keep the elements in sorted order, to get the subset of elements in a particular range, or to get the Min or Max element of the set.
+
 * String builder
 
-* SortedSet
+    * Use this to add up strings faster, internally a char []
+```
+StringBuilder sb = new StringBuilder();
+sb.Append("This is the beginning of a sentence, ");
+sb.Replace("the beginning of ", "");
+sb.Insert(sb.ToString().IndexOf("a ") + 2, "complete ");
+sb.Replace(",", ".");
+Console.WriteLine(sb.ToString());
+```
 
-* SortedDictionary
+* SortedList and SortedDictionary
+
+    * SortedList uses less memory than SortedDictionary.
+    * SortedDictionary has faster insertion and removal operations for unsorted data, O(log n) as opposed to O(n) for SortedList.
+    * If the list is populated all at once from sorted data, SortedList is faster than SortedDictionary.
+
+```
+SortedList<string, string> openWith = 
+            new SortedList<string, string>();
+openWith.Add("txt", "notepad.exe");
+SortedList<int, int> openWith = 
+            new SortedList<int, int>(delegate(int x, int y)
+{
+    return y - x;     
+});
+
+bool contains = openWith.ContainsKey("txt");
+bool removed = openWith.Remove("txt");
+var found = openWith.TryGetValue("txt", out val);
+```
