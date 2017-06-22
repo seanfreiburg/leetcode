@@ -110,3 +110,7 @@ var val = numbers.Peek();
 * AVL/self balancing tree
 
 * String builder
+
+* SortedSet
+
+* SortedDictionary
